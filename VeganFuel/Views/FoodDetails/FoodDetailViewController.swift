@@ -9,21 +9,30 @@ import UIKit
 
 class FoodDetailViewController: UIViewController {
 
+    @IBOutlet weak var foodDetailImageView: UIImageView!
+    @IBOutlet weak var foodTitleLabel: UILabel!
+    @IBOutlet weak var foodCaloriesLabel: UILabel!
+    @IBOutlet weak var foodDescriptionLabel: UILabel!
+    @IBOutlet weak var ratingImageView: UIImageView!
+    
+    var food: Foods!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+        
+        populateView()
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    private func populateView(){
+        ratingImageView.image = UIImage(named: food.ratingImage)
+        foodTitleLabel.text = food.name
+        foodDescriptionLabel.text = food.description
+        foodCaloriesLabel.text = food.formattedCalories
+        foodDetailImageView.image = UIImage(named: food.image)
     }
-    */
-
+    
+    @IBAction func orderBtnOnClicked(_ sender: Any) {
+        
+    }
+    
 }

@@ -24,7 +24,10 @@ class LoginViewController: UIViewController {
         
         Auth.auth().signIn(withEmail: email, password: password) { firebaseResult, error in
             if let e = error {
-                print("Error occured.")
+                let errorAlert = UIAlertController(title: "Invalid Credentials", message: "Either your password doesn't match, or you don't have an account with this email.", preferredStyle: .alert)
+                let okAction = UIAlertAction(title: "Ok", style: .default)
+                errorAlert.addAction(okAction)
+                self.present(errorAlert, animated: true)
             } else {
                 // Go to home screen
                 self.performSegue(withIdentifier: "goToNext", sender: self)

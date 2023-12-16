@@ -9,15 +9,17 @@ import UIKit
 
 class FoodListTableViewCell: UITableViewCell {
 
-    override func awakeFromNib() {
-        super.awakeFromNib()
-        // Initialization code
-    }
-
-    override func setSelected(_ selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
-
-        // Configure the view for the selected state
+    
+    @IBOutlet weak var ratingImageView: UIImageView!
+    @IBOutlet weak var foodTitleLabel: UILabel!
+    @IBOutlet weak var foodImageView: UIImageView!
+    @IBOutlet weak var foodCaloriesLabel: UILabel!
+    
+    func setup(food: Foods){
+        foodCaloriesLabel.text = food.formattedCalories
+        foodTitleLabel.text = food.name
+        foodImageView.image = UIImage(named: food.image)
+        ratingImageView.image = UIImage(named: food.ratingImage)
     }
     
 }

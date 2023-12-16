@@ -32,9 +32,9 @@ class OnboardingViewController: UIViewController {
         collectionView.isPagingEnabled = true
         
         slides = [
-            OnboardingSlide(title: "Welcome to VeganFuel", description: "Dive into a world of delectable vegan cuisine.", image: "onboarding-1" ),
-            OnboardingSlide(title: "Convenient Delivery", description: "Delicious vegan delivered to your doorstep.", image: "onboarding-2" ),
-            OnboardingSlide(title: "Exclusive Offers", description: "We love treating you to a little extra!.", image: "onboarding-3" )
+            OnboardingSlide(title: "Welcome to VeganFuel", description: "Explore a world of delicious vegan recipes.", image: "onboarding-1" ),
+            OnboardingSlide(title: "Cruelty-Free Delights", description: "Savor plant-based goodness.", image: "onboarding-2" ),
+            OnboardingSlide(title: "Explore Endless Recipes", description: "Unleash a world of diverse vegan dishes.", image: "onboarding-3" )
         ]
         
         pageControl.numberOfPages = slides.count
@@ -43,8 +43,8 @@ class OnboardingViewController: UIViewController {
     @IBAction func nextBtnClicked(_ sender: Any) {
         if currentPage == slides.count - 1{
             // Move page from onboarding to next page
-            let controller = storyboard?.instantiateViewController(identifier: "LoginNavigationViewController") as! UINavigationController
-            present(controller, animated: true, completion: nil)
+            let controller = storyboard?.instantiateViewController(identifier: "LoginViewController")
+            present(controller!, animated: false, completion: nil)
         } else{
             currentPage += 1
             collectionView.isPagingEnabled = false
